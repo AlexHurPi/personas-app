@@ -12,8 +12,9 @@
     <title>Listado de Comunas</title>
   </head>
   <body>
+    <div class="container">
     <h1>Listado de Comunas</h1>
-
+    <a href="{{route('comunas.create')}}" class="btn btn-success">add</a>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -45,5 +46,6 @@
           @endforeach       
         </tbody>
       </table>
+    </div>
   </body>
 </html>
