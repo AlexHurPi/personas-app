@@ -98,6 +98,28 @@ class ComunaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comuna = Comuna::find($id);
+        //$comuna = Comuna::where('comu_codi', $id)->first();
+        $comuna->delete();
+        /*$comuna = Comuna::where('comu_codi', $id)->first();
+        $comuna->primaryKey = 'comu_codi';
+        if ($comuna) {
+            $comuna->delete();
+            // Resto del código
+            $comunas = DB::table('tb_comuna')
+            ->join('tb_municipio','tb_comuna.muni_codi', '=', 'tb_municipio.muni_codi')
+            ->select('tb_comuna.*',"tb_municipio.muni_nomb")
+            ->get();
+            return view('comuna.index',['comunas'=>$comunas]);
+        } else {
+            // Manejo de error, por ejemplo:
+            return response()->json(['error' => 'Registro no encontrado'], 404);
+        }*/
+        
+        $comunas = DB::table('tb_comuna')
+        ->join('tb_municipio','tb_comuna.muni_codi', '=', 'tb_municipio.muni_codi')
+        ->select('tb_comuna.*',"tb_municipio.muni_nomb")
+        ->get();
+        return view('comuna.index',['comunas'=>$comunas]);
     }
 }

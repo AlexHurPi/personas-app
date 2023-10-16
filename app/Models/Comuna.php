@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Comuna extends Model
 {
     use HasFactory;
-    use hasFactory;
+    use HasFactory;
     protected $table = 'tb_comuna';
     protected $primarykey ='comu_codi';
     public $timestamps = false; 
+    
+    
 }
