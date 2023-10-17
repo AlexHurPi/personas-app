@@ -31,5 +31,7 @@ Route::delete('/municipios/{municipio}',[MunicipioController::class, 'destroy'])
 Route::put('/municipios/{municipio}',[MunicipioController::class, 'update'])->name('municipios.update');
 Route::get('/municipios/{municipio}',[MunicipioController::class, 'edit'])->name('municipios.edit');
 
-Route::get('/departamentos',[DepartamentoController::class, 'index'])
+Route::get('/departamentos',[DepartamentoController::class, 'index'])->name('departamentos.index');
+Route::post('/departamentos',[DepartamentoController::class, 'store'])->name('departamentos.store');
+Route::get('/departamentos/create',[DepartamentoController::class, 'create'])->name('departamentos.create');
 ?>
