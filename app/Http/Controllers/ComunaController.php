@@ -20,7 +20,7 @@ class ComunaController extends Controller
        ->join('tb_municipio', 'tb_comuna.muni_codi', "=", 'tb_municipio.muni_codi')
        ->select('tb_comuna.*', "tb_municipio.muni_nomb")
        ->get();
-       return view("comuna.index",["comunas" => $comunas]);
+       return view("comuna.index",['comunas' => $comunas]);
     }
 
     /**
@@ -75,7 +75,11 @@ class ComunaController extends Controller
      */
     public function edit($id)
     {
-        //
+       $comuna = Comuna::find($id);
+       $municipios = DB::table('tb_municipio')
+       ->orderBy('muni_nomb')
+       ->get();
+       return view('comuna.edit',['comuna'=>$comuna, 'municipios'=> $municipios]);
     }
 
     /**
@@ -87,7 +91,18 @@ class ComunaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $comuna = Comuna::find($id);
+
+       $comuna->comu_nomb = $request->name;
+       $comuna->muni_codi = $request->code;
+       $comuna->save();
+
+       $comunas = DB::table('tb_comuna')
+       ->join('tb_municipio', 'tb_comuna.muni_codi', '=', 'tb_municipio.muni_codi')
+       ->select('tb_comuna.*',"tb_municipio.muni_nomb")
+       ->get();
+        return view('comuna.index',['comunas'=>$comunas]);
+
     }
 
     /**
@@ -98,27 +113,13 @@ class ComunaController extends Controller
      */
     public function destroy($id)
     {
-        $comuna = Comuna::find($id);
-        //$comuna = Comuna::where('comu_codi', $id)->first();
+        $comuna = Comuna::find($id);        
         $comuna->delete();
-        /*$comuna = Comuna::where('comu_codi', $id)->first();
-        $comuna->primaryKey = 'comu_codi';
-        if ($comuna) {
-            $comuna->delete();
-            // Resto del código
-            $comunas = DB::table('tb_comuna')
-            ->join('tb_municipio','tb_comuna.muni_codi', '=', 'tb_municipio.muni_codi')
-            ->select('tb_comuna.*',"tb_municipio.muni_nomb")
-            ->get();
-            return view('comuna.index',['comunas'=>$comunas]);
-        } else {
-            // Manejo de error, por ejemplo:
-            return response()->json(['error' => 'Registro no encontrado'], 404);
-        }*/
+        
         
         $comunas = DB::table('tb_comuna')
-        ->join('tb_municipio','tb_comuna.muni_codi', '=', 'tb_municipio.muni_codi')
-        ->select('tb_comuna.*',"tb_municipio.muni_nomb")
+        ->join('tb_municipio', 'tb_comuna.muni_codi', '=', 'tb_municipio.muni_codi')
+        ->select('tb_comuna.*', "tb_municipio.muni_nomb")
         ->get();
         return view('comuna.index',['comunas'=>$comunas]);
     }
