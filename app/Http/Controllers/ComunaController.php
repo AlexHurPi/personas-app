@@ -20,7 +20,7 @@ class ComunaController extends Controller
        ->join('tb_municipio', 'tb_comuna.muni_codi', "=", 'tb_municipio.muni_codi')
        ->select('tb_comuna.*', "tb_municipio.muni_nomb")
        ->get();
-       return view("comuna.index",['comunas' => $comunas]);
+       return view("comuna.index",['comunas' => $comunas]);//se le quita la s a comuna.index
     }
 
     /**
