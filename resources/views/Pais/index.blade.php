@@ -31,7 +31,7 @@
           <tr>
             <th>{{$pais->pais_codi}}</th>
             <td>{{$pais->pais_nomb}}</td>
-            <td>{{$pais->pais_capi}}</td>   
+            <td>{{$pais->muni_nomb}}</td>   
             <td>actions
                   
             </td>           
