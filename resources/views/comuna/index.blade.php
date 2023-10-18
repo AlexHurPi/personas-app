@@ -12,8 +12,15 @@
     <title>Listado de Comunas</title>
   </head>
   <body>
+    <div>
+      
+    </div>
     <div class="container">
-    <h1>Commune List</h1>
+      <a type="button" class="btn btn-link">Comunas</a>
+      <a type="button" class="btn btn-link" href="{{ route('municipios.index')}}">Municipios</a>
+      <a type="button" class="btn btn-link" href="{{ route('departamentos.index')}}">Departamentos</a>
+      <a type="button" class="btn btn-link" >Paises</a>
+      <h1>Commune List</h1>
     <a href="{{ route('comunas.create')}}" class="btn btn-success">Add</a>
     
     <table class="table">

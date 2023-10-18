@@ -13,13 +13,17 @@
   </head>
   <body>
     <div class="container">
+      <a type="button" class="btn btn-link" href="{{ route('comunas.index')}}">Comunas</a>
+      <a type="button" class="btn btn-link" >Municipios</a>
+      <a type="button" class="btn btn-link" href="{{ route('departamentos.index')}}">Departamentos</a>
+      <a type="button" class="btn btn-link" href="{{ route('paises.index')}}">Paises</a>
     <h1>Listado de Municipios</h1>
     <a href="{{ route('municipios.create')}}" class="btn btn-success">Add</a>
     
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">Code</th>
             <th scope="col">Municipio</th>
             <th scope="col">Departamento</th>            
             <th scope="col">Actions</th>
