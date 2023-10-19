@@ -26,15 +26,20 @@
           </tr>
         </thead>
         <tbody>
-            @foreach($paises as $pais)
-            
+            @foreach($paises as $pais)            
           <tr>
             <th>{{$pais->pais_codi}}</th>
             <td>{{$pais->pais_nomb}}</td>
-            <td>{{$pais->muni_nom}}</td>   
-            <td>actions
-                  
-            </td>           
+            <td>{{$pais->pais_capi}}</td>   
+            <td>   
+              
+              <form action="{{ route('paises.destroy', ['pais'=>$pais->pais_codi])}}"
+              method='POST' style="display: inline-block">
+              @method('delete')
+              @csrf
+                <input class="btn btn-danger" type="submit" value="delete">  
+              </form>
+            </td>               
           </tr> 
           @endforeach       
         </tbody>
