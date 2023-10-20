@@ -17,9 +17,9 @@
       @csrf
       <div class="mb-3">
         <label for="id" class="form-label">Code</label>
-        <input type="text" class="form-control" id="id" aria-describedby="idlHelp" name="id"
-        disabled ="disabled">        
-        <div id="idHelp" class="form-text">Country code</div>
+        <input type="text" pattern="[A-Z]{1,3}" title="Solo letras mayúsculas, máximo 3 caracteres" required class="form-control" id="id" aria-describedby="idlHelp" name="id"
+       placeholder="Digite 3 letras (codigo ISO3).">        
+        <div> <label for="form">Country code</label></div>
       </div>
       <div class="mb-3">
         <label for="name" class="form-label">Country</label>

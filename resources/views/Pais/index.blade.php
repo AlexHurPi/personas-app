@@ -9,12 +9,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Listado de paises</title>
+    <title>Coutries List</title>
   </head>
   <body>
     <div class="container">
-       
-    <h1>Listado de Paises</h1>    
+      <a type="button" class="btn btn-link" href="{{ route('comunas.index')}}">Comunas</a>
+      <a type="button" class="btn btn-link" href="{{ route('municipios.index')}}">Municipios</a>
+      <a type="button" class="btn btn-link" href="{{ route('departamentos.index')}}">Departamentos</a>
+      <a type="button" class="btn btn-link" >Paises</a>
+      
+      <h1>Coutries List</h1>    
     <a href="{{ route('paises.create')}}" class="btn btn-success">Add</a>
     <table class="table">
         <thead>
@@ -28,9 +32,9 @@
         <tbody>
             @foreach($paises as $pais)            
           <tr>
-            <th>{{$pais->pais_codi}}</th>
+            <th scope="row"> {{$pais->pais_codi}}</th>
             <td>{{$pais->pais_nomb}}</td>
-            <td>{{$pais->pais_capi}}</td>   
+            <td>{{$pais->muni_nomb}}</td>   
             <td>   
               <a href="{{route('paises.edit',['pais'=>$pais->pais_codi])}}"
                 class="btn btn-info">Edit</a></li>
