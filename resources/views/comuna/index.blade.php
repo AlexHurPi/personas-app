@@ -20,8 +20,10 @@
       <a type="button" class="btn btn-link" href="{{ route('municipios.index')}}">Municipios</a>
       <a type="button" class="btn btn-link" href="{{ route('departamentos.index')}}">Departamentos</a>
       <a type="button" class="btn btn-link" href="{{ route('paises.index')}}">Paises</a>
-      <h1>Commune List</h1>
-    <a href="{{ route('comunas.create')}}" class="btn btn-success">Add</a>
+      <a type="button" class="btn btn-link" href="{{ route('dashboard')}}">Perfil cerrar sesion</a>
+
+      <h1>Commune List</h1>    
+      <a href="{{ route('comunas.create')}}" class="btn btn-success">Add</a>
     
     <table class="table">
         <thead>
