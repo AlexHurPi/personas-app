@@ -1,4 +1,4 @@
-doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -11,24 +11,32 @@ doctype html>
     <title>Edit Comuna</title>
   </head>
   <body>
-    <div class="container">
-    <h1>Edit Commune</h1>
+    <x-app-layout>
+      <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+           {{ __('Edit Communes') }} </h2>
+           </x-slot>
+           <div class="py-12">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+              <div class="p-6 text-gray-900">
+              <div class="container">
+    
     <form method="POST" action="{{route('comunas.update',['comuna'=> $comuna->comu_codi])}}">
       @method('put')
         @csrf
       <div class="mb-3">
         <label for="codigo" class="form-label">Id</label>
-        <input type="text" class="form-control" id="id" aria-describedby="codigoHelp" name="id"
+        <input type="text" class="form-input rounded focus:outline-none w-full bg-gray-100" id="id" aria-describedby="codigoHelp" name="id"
         disabled ="disabled" value="{{$comuna->comu_codi}}">        
         <div id="codigoHelp" class="form-text">Comune Id</div>
       </div>
       <div class="mb-3">
         <label for="name" class="form-label">Commune</label>
-        <input type="text" required class="form-control" id="name" placeholder="Commune name"
+        <input type="text" required class="form-input rounded focus:outline-none w-full" id="name" placeholder="Commune name"
         name="name" value="{{$comuna->comu_nomb}}">
       </div>
       <label for="municipality">Municipality:</label>
-      <select class="form-select" id="municipality" name="code" required>
+      <select class="form-select w-full rounded-md focus:outline-none" id="municipality" name="code" required>
         <option selected disabled value="">Choose one...</option>
         @foreach ($municipios as $municipio)
         @if ($municipio->muni_codi ==$comuna->muni_codi)
@@ -57,5 +65,9 @@ doctype html>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
+  </div>
+  </div>
+    </div>
+  </x-app-layout>
   </body>
 </html>
