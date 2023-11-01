@@ -21,8 +21,25 @@
                   ->routeIs('comunas.index')"> 
                   {{ __('Comunas') }} 
                 </x-nav-link> 
-            </div>          
-           
+            </div>   
+            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <x-nav-link :href="route('municipios.index')" :active="request()
+                ->routeIs('municipios.index')"> 
+                {{ __('municipios') }} 
+              </x-nav-link> 
+          </div>   
+          <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <x-nav-link :href="route('departamentos.index')" :active="request()
+            ->routeIs('departamentos.index')"> 
+            {{ __('Departamentos') }} 
+          </x-nav-link> 
+      </div>                         
+      <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <x-nav-link :href="route('paises.index')" :active="request()
+        ->routeIs('paises.index')"> 
+        {{ __('Paises') }} 
+      </x-nav-link> 
+  </div>             
                 </div>
 
             <!-- Settings Dropdown -->
